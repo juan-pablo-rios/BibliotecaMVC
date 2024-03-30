@@ -2,3 +2,184 @@
     ViewBag.Title = "Gestión de usuarios";
     ViewBag.Css = "poner_nombre_de_archivo_css_aquí";
 }
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Dashboard" asp-action="Index">
+                    <img src="https://cdn.pixabay.com/photo/2019/06/13/07/23/black-and-white-4270982_1280.png" alt="Logo" height="30" title="Home">
+                </a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#library-menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="library-menu">
+                    <ul class="navbar-nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="GestionLibros" asp-action="Index">Gestión Libros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="" asp-controller="GestionUsuarios" asp-action="Index">Gestión Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Prestamo" asp-action="Index">Préstamos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Historial" asp-action="Index">Historial</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Admin</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row d-flex justify-content-end align-items-center mt-4 row-cols-2 row-cols-md-6 row-cols-lg-8" style="height: 4rem;">
+            <a href="" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalLoan">Registrar Usuario</a>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 table-responsive">
+                <table class="table table-sm table-bordered table-dark table-hover caption-top">
+                    <thead>
+                        <caption>Usuarios</caption>
+                        <tr>
+                            <th>Id Usuario</th>
+                            <th>Nombre</th>
+                            <th>Dirección</th>
+                            <th>Teléfono</th>
+                            <th>Correo</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>3452</td>
+                            <td>Sofía</td>
+                            <td>Calle 60b # 54-78</td>
+                            <td>3165476669</td>
+                            <td>sofia@gmail.com</td>
+                            <td>Activo/a</td>
+                            <td>
+                                <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalReturn">Actualizar Información</a>
+                                <a href="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalRenew">Eliminar</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>666</td>
+                            <td>Aura</td>
+                            <td>Carrera 45a # 11-99</td>
+                            <td>3173344567</td>
+                            <td>aura@gmail.com</td>
+                            <td>Inactivo/a</td>
+                            <td>
+                                <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalReturn">Actualizar Información</a>
+                                <a href="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalRenew">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @* MODALES: *@
+    <!-- Préstamo -->
+    <div class="modal modal-dark fade" id="modalLoan" tabindex="-1" aria-labelledby="modalLoanTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLoanTitle">Registrar nuevo préstamo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container d-flex justify-content-center">
+                        <form action="">
+                            <div class="row mb-3">
+                                <div class="col-auto">
+                                    <input type="text" name="userName" id="userName" placeholder="Nombre" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-auto">
+                                    <input type="text" name="userAddress" id="userAddress" placeholder="Dirección" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-auto">
+                                    <input type="phone" name="userPhone" id="userPhone" placeholder="Teléfono" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-auto">
+                                    <input type="email" name="userEmail" id="userEmail" placeholder="Email" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-auto">
+                                    <select name="userState" id="userState" class="form-control form-control-sm">
+                                        <option value="">Activo/a</option>
+                                        <option value="">Inactivo/a</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Confirmar préstamo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Devolución -->
+    <div class="modal modal-dark fade" id="modalReturn" tabindex="-1" aria-labelledby="modalReturnTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalReturnTitle">¿Desea confirmar la devolución?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <p>Fecha de préstamo: <span>00/00/0000</span></p>
+                        <p>Días prestado: <span># días</span></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Confirmar devolución</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Renovación -->
+    <div class="modal modal-dark fade" id="modalRenew" tabindex="-1" aria-labelledby="modalRenewTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalRenewTitle">¿Desea renovar el préstamo?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <p>Días restantes para devolver el libro: <span># días</span></p>
+                        <p><small>¡Al confirmar la renovación, se renovará por <strong>15 días</strong> más!</small></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Confirmar renovación</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

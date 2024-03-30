@@ -2,3 +2,56 @@
     ViewBag.Title = "Inicio";
     ViewBag.Css = "poner_nombre_de_archivo_css_aquí";
 }
+<div class="container">
+    <div class="row">
+        <nav class="d-flex justify-content-end mt-4">
+            <select name="panelAdmin" id="panelAdmin">
+                <option value="adminName">Admin</option>
+                <option value="">Logout</option>
+            </select>
+        </nav>
+    </div>
+    <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-3">
+            <h2>Panel de Control</h2>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-start row-cols-1 row-cols-md-2 row-cols-lg-4 mt-5">
+        <div class="p-1">
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2016/09/08/22/43/books-1655783_960_720.jpg" class="card-img-top" alt="Libros">
+                <div class="card-body">
+                    <h5 class="card-title">Libros</h5>
+                    <a class="btn btn-primary" asp-area="" asp-controller="GestionLibros" asp-action="Index">Gestionar</a>
+                </div>
+            </div>
+        </div>
+        <div class="p-1">
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2017/07/31/11/04/reading-2557256_960_720.jpg" class="card-img-top" alt="Usuarios">
+                <div class="card-body">
+                    <h5 class="card-title">Usuarios</h5>
+                    <a class="btn btn-primary" asp-area="" asp-controller="GestionUsuarios" asp-action="Index">Gestionar</a>
+                </div>
+            </div>
+        </div>
+        <div class="p-1">
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2017/12/17/21/44/drink-3025022_960_720.jpg" class="card-img-top" alt="Préstamos">
+                <div class="card-body">
+                    <h5 class="card-title">Préstamos</h5>
+                    <a class="btn btn-primary" asp-area="" asp-controller="Prestamo" asp-action="Index">Gestionar</a>
+                </div>
+            </div>  
+        </div>
+        <div class="p-1">
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2017/07/15/22/07/library-2507902_960_720.jpg" class="card-img-top" alt="Historial">
+                <div class="card-body">
+                    <h5 class="card-title">Historial</h5>
+                    <a class="btn btn-primary" asp-area="" asp-controller="Historial" asp-action="Index">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
