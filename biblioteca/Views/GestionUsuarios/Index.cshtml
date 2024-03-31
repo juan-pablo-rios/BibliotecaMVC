@@ -41,7 +41,7 @@
 
     <div class="container">
         <div class="row d-flex justify-content-end align-items-center mt-4 row-cols-2 row-cols-md-6 row-cols-lg-8" style="height: 4rem;">
-            <a href="" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalLoan">Registrar Usuario</a>
+            <a href="" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalUserSignUp">Registrar Usuario</a>
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-12 table-responsive">
@@ -90,12 +90,12 @@
     </div>
 
     @* MODALES: *@
-    <!-- Préstamo -->
-    <div class="modal modal-dark fade" id="modalLoan" tabindex="-1" aria-labelledby="modalLoanTitle" aria-hidden="true">
+    <!-- Registrar Usuario -->
+    <div class="modal fade" id="modalUserSignUp" tabindex="-1" aria-labelledby="modalUserSignUpTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalLoanTitle">Registrar nuevo préstamo</h5>
+                    <h5 class="modal-title" id="modalUserSignUpTitle">Registrar usuario</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -123,9 +123,9 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-auto">
-                                    <select name="userState" id="userState" class="form-control form-control-sm">
-                                        <option value="">Activo/a</option>
-                                        <option value="">Inactivo/a</option>
+                                    <select name="userState" id="userState" class="form-control-sm">
+                                        <option value="Active">Activo/a</option>
+                                        <option value="Inactive">Inactivo/a</option>
                                     </select>
                                 </div>
                             </div>
@@ -134,13 +134,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Confirmar préstamo</button>
+                    <button type="button" class="btn btn-primary">Registrar</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Devolución -->
-    <div class="modal modal-dark fade" id="modalReturn" tabindex="-1" aria-labelledby="modalReturnTitle" aria-hidden="true">
+    <!-- Actualizar usuario -->
+    <div class="modal fade" id="modalReturn" tabindex="-1" aria-labelledby="modalReturnTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -148,35 +148,62 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="container">
-                        <p>Fecha de préstamo: <span>00/00/0000</span></p>
-                        <p>Días prestado: <span># días</span></p>
+                    <div class="container d-flex justify-content-center">
+                        <form action="">
+                            <div class="row mb-3">
+                                <div class="col-auto">
+                                    <input type="text" name="userNameUpdate" id="userNameUpdate" placeholder="Nombre" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-auto">
+                                    <input type="text" name="userAddressUpdate" id="userAddressUpdate" placeholder="Dirección" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-auto">
+                                    <input type="phone" name="userPhoneUpdate" id="userPhoneUpdate" placeholder="Teléfono" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-auto">
+                                    <input type="email" name="userEmailUpdate" id="userEmailUpdate" placeholder="Email" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-auto">
+                                    <select name="userStateUpdate" id="userStateUpdate" class="form-control-sm">
+                                        <option value="Active">Activo/a</option>
+                                        <option value="Inactive">Inactivo/a</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Confirmar devolución</button>
+                    <button type="button" class="btn btn-primary">Actualizar</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- Renovación -->
-    <div class="modal modal-dark fade" id="modalRenew" tabindex="-1" aria-labelledby="modalRenewTitle" aria-hidden="true">
+    <div class="modal fade" id="modalRenew" tabindex="-1" aria-labelledby="modalRenewTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalRenewTitle">¿Desea renovar el préstamo?</h5>
+                    <h5 class="modal-title" id="modalRenewTitle">Eliminar usuario</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <p>Días restantes para devolver el libro: <span># días</span></p>
-                        <p><small>¡Al confirmar la renovación, se renovará por <strong>15 días</strong> más!</small></p>
+                        <p>¿Desea eliminar el usuario: <span>#Username</span>?</p>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Confirmar renovación</button>
+                    <button type="button" class="btn btn-primary">Eliminar usuario</button>
                 </div>
             </div>
         </div>
