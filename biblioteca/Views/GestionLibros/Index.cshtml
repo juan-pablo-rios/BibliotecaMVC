@@ -2,3 +2,20 @@
     ViewBag.Title = "Gestión de libros";
     ViewBag.Css = "poner_nombre_de_archivo_css_aquí";
 }
+
+<nav>
+    <a href="@Url.Action("Index", "Controllers")"><b>Gestion libros</b></a>
+    <a href="@Url.Action("Detalles", "Controller")"><b>Gestión Usuarios</b></a>
+    <a href=""><b>Préstamos</b></a>
+    <a href=""><b>Historial</b></a>
+ </nav>
+    <center>    
+        <h2>Gestión de libros</h2>
+        <a href="@Url.Action("RegistrarLibro", "Controllers")"><button>Registrar Libro</button></a>
+        <br>
+        <br>
+        <a href="@Url.Action("ActiualizarLibro", "Controllers")"><button>Actualizar Libro</button></a>
+        <br>
+        <br>
+        <a href="@Url.Action("EliminarLibro", "Controllers")"><button>Eliminar Libro</button></a>
+    </center>

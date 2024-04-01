@@ -2,3 +2,40 @@
     ViewBag.Title = "Registrar libro";
     ViewBag.Css = "poner_nombre_de_archivo_css_aquí";
 }
+
+
+    <nav>
+        <a href=""><b>Gestion libros</b></a>
+        <a href=""><b>Gestión Usuarios</b></a>
+        <a href=""><b>Préstamos</b></a>
+        <a href=""><b>Historial</b></a>
+     </nav>
+    <center>
+    <div class="Registrar">
+        <label for="id">Id libro:</label>
+        <input type="text">
+        <br>
+        <br>
+        <label for="titulo">Título Libro:</label>
+        <input type="text">
+        <br>
+        <br>
+        <label for="genero">Genero:</label>
+        <input type="text">
+        <br>
+        <br>
+        <label for="publicacion">Año publicación:</label>
+        <input type="text">
+        <br>
+        <br>
+        <label for="autor">Autor</label>
+        <input type="text">
+        <br>
+        <br>
+        <label for="unidades">Unidades disponibles:</label>
+        <input type="text">
+    </div>
+    <br>
+    <br>
+    <a href="@Url.Action("Index", "Controllers")"><button>Registrar</button></a>
+    </center>
